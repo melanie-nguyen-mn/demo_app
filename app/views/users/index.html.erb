@@ -18,8 +18,28 @@
     <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+<tr><td colspan=5>&nbsp;</td></tr>
+<tr><td colspan=5 align="center"><%= will_paginate @users %></td></tr>
 </table>
 
+<%= @users.current_page %> <%= @users.next_page %>
+<% if @users.current_page < @users.total_pages %> 
+<a href="/users?page=<%=@users.next_page%>"> go next </a>
+<% end %> 
 <br />
-
 <%= link_to 'New User', new_user_path %>
+<br>
+<br>TESTING LINKS
+<br>users <%= @users %>
+<br>url_for <%= url_for %>
+<br>users_url <%= users_url %>
+<br>users_path <%= users_path %>
+<br>test 
+<%= link_to 'my link to next page with merge', params.merge({:page => @users.next_page}) %>  
+<br>image: 
+<br><%= image_tag("menu_logo.png") %>
+<br>image link to next_page :
+<br><%= link_to image_tag("menu_logo.png") , params.merge({:page => @users.next_page})%>
+<br>arrow: 
+<br><%= image_tag("arrow_green_right.jpg") %>
+<br>
